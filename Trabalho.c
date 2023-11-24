@@ -554,4 +554,4 @@ int periodo(){
     }
     //debug: printf("\ncal %d, caltotal %d, maxcal %d, mincal %d\n", cal, caltotal, maxcal, mincal);
     printf("\n%d pacientes nao cumpriram com o plano\n", num);
-}
+}fdp do caralho
