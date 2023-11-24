@@ -5,7 +5,7 @@
 #include <string.h>
 #include <math.h>
 #include <conio.h>
-#include <ctype.h>
+#include <ctype.h>guçiugçiugçiug
 
 int verificarFile();
 int paciente();
