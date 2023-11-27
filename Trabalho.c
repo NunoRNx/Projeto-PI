@@ -11,6 +11,7 @@ int verificarFile();
 int paciente();
 int nutricao();
 int plano();
+data(int dia, int mes, int ano);
 int periodo();
 
 struct Maximo {
@@ -146,100 +147,8 @@ int nutricao(){
     //scanf(" %s", &nump);
     fprintf(file, "%s;", nump);
     
-    do
-    {
-        printf("\nData:\n");
-        printf("\nAno:\t");
-        scanf("%d", &ano);
-        if (ano>2023)
-        {
-            printf("Ano invalido tente novamente\n");
-        }
-    } while (ano>2023);
-    do
-    {
-        printf("\nMes (1-12):\t");
-        scanf(" %d", &mes);
-        if (mes<1 || mes > 12)
-        {
-           printf("\n\nMes invalido tente novamente\n");
-           system("pause");
-        }
-    } while (mes<1 || mes > 12);
-    switch (mes)
-    {
-        case 1:
-            
-        case 3:
-            
-        case 5:
-            
-        case 7:
-            
-        case 8:
-            
-        case 10:
-            
-        case 12:
-        //verificar 31
-            do
-            {
-                printf("\nDia:\t");
-                scanf("%d", &dia);
-                if (dia>31 || dia<1)
-                {
-                    printf("\nDia invalido tente novamente\n");
-                }
-                
-            } while (dia>31 || dia<1);
-            break;
-        case 2:
-        //verificar 28/29
-            if(ano%4 == 0){
-                do
-                {
-                    printf("\nDia:\t");
-                    scanf("%d", &dia);
-                    if (dia>29 || dia<1)
-                    {
-                        printf("\nDia invalido tente novamente\n");
-                    }
-                    
-                }while (dia>29 || dia<1);
-            }else{
-                do
-                {
-                    printf("\nDia:\t");
-                    scanf("%d", &dia);
-                    if (dia>28 || dia<1)
-                    {
-                        printf("\nDia invalido tente novamente\n");
-                    }
-                    
-                }while (dia>28 || dia<1);
-            }
-            break;
-        case 4:
-        case 6:
-            
-        case 9:
-        case 11:
-        //verificar 30 dias
-            do
-            {
-                printf("\nDia:\t");
-                scanf("%d", &dia);
-                if (dia>30 || dia<1)
-                {
-                    printf("\nDia invalido tente novamente\n");
-                }
-                
-            } while (dia>30 || dia<1);
-            break;
-        
-        default:
-            break;
-    }
+    data(dia, mes, ano);
+    
     fprintf(file, "%d-%d-%d;", dia, mes, ano);
     printf("\nTipo de refeicao:\n");
     scanf(" %[^\n]%*c", ref);
@@ -270,100 +179,8 @@ int plano(){
     //scanf(" %s", &nump);
     fprintf(file, "%s;", nump);
     
-    do
-    {
-        printf("\nData:\n");
-        printf("\nAno:\t");
-        scanf("%d", &ano);
-        if (ano>2023)
-        {
-            printf("Ano invalido tente novamente\n");
-        }
-    } while (ano>2023);
-    do
-    {
-        printf("\nMes (1-12):\t");
-        scanf(" %d", &mes);
-        if (mes<1 || mes > 12)
-        {
-           printf("\n\nMes invalido tente novamente\n");
-           system("pause");
-        }
-    } while (mes<1 || mes > 12);
-    switch (mes)
-    {
-        case 1:
-            
-        case 3:
-            
-        case 5:
-            
-        case 7:
-            
-        case 8:
-            
-        case 10:
-            
-        case 12:
-        //verificar 31
-            do
-            {
-                printf("\nDia:\t");
-                scanf("%d", &dia);
-                if (dia>31 || dia<1)
-                {
-                    printf("\nDia invalido tente novamente\n");
-                }
-                
-            } while (dia>31 || dia<1);
-            break;
-        case 2:
-        //verificar 28/29
-            if(ano%4 == 0){
-                do
-                {
-                    printf("\nDia:\t");
-                    scanf("%d", &dia);
-                    if (dia>29 || dia<1)
-                    {
-                        printf("\nDia invalido tente novamente\n");
-                    }
-                    
-                }while (dia>29 || dia<1);
-            }else{
-                do
-                {
-                    printf("\nDia:\t");
-                    scanf("%d", &dia);
-                    if (dia>28 || dia<1)
-                    {
-                        printf("\nDia invalido tente novamente\n");
-                    }
-                    
-                }while (dia>28 || dia<1);
-            }
-            break;
-        case 4:
-        case 6:
-            
-        case 9:
-        case 11:
-        //verificar 30 dias
-            do
-            {
-                printf("\nDia:\t");
-                scanf("%d", &dia);
-                if (dia>30 || dia<1)
-                {
-                    printf("\nDia invalido tente novamente\n");
-                }
-                
-            } while (dia>30 || dia<1);
-            break;
-        
-        default:
-            break;
-    }
+    data(dia, mes, ano);
+
     fprintf(file, "%d-%d-%d;", dia, mes, ano);
     printf("\nTipo de refeicao:\n");
     scanf(" %[^\n]%*c", ref);
@@ -378,6 +195,91 @@ int plano(){
     fclose(file);
 
     return 0;
+}
+
+int data(int dia, int mes, int ano){
+    int x, i;
+    do
+    {
+        x=0;
+        system("CLS");
+        printf("\nInsira periodo no seguinte formato (De dd/mm/yyyy - Ate dd/mm/yyyy):\n");
+        scanf("%d-%d-%d", &dia, &mes, &ano);
+        if (mes<1 || mes > 12)
+        {
+            x++;
+           printf("\n\nMes invalido tente novamente\n");
+           system("pause");
+        }
+        if (dia<1 || dia > 31)
+        {
+            x++;
+           printf("\n\nDia invalido tente novamente\n");
+           system("pause");
+        }
+        switch (mes)
+        {
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+            //meses com 31 dias
+                break;
+            case 2:
+            //verificar 28/29
+                if(ano%4 == 0){
+                    if (dia>29)
+                    {
+                        if (i==0)
+                        {
+                            printf("\nData minima nao e valida, o mes %d contem apenas 29 dias, tente novamente\n", mes);
+                            x++;
+                        }else{
+                            printf("\nData maxima nao e valida, o mes %d contem apenas 29 dias, tente novamente\n", mes);
+                            x++;
+                        }
+                    }else{
+                        if (dia>28)
+                        {
+                            if (i==0)
+                            {
+                                printf("\nData minima nao e valida, o mes %d contem apenas 28 dias, tente novamente\n", mes);
+                                x++;
+                            }else{
+                                printf("\nData maxima nao e valida, o mes %d contem apenas 28 dias, tente novamente\n", mes);
+                                x++;
+                            }
+                        }
+                    }
+                break;
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+            //verificar 30 dias
+                if (dia>30)
+                    {
+                        if (i==0)
+                        {
+                            printf("\nData minima nao e valida, o mes %d contem apenas 30 dias, tente novamente\n", mes);
+                            x++;
+                        }else{
+                            printf("\nData maxima nao e valida, o mes %d contem apenas 30 dias, tente novamente\n", mes);
+                            x++;
+                        }
+                    }
+                break;
+            default:
+                break;
+            }
+        }
+        system("pause");
+    } while (x!=0);
+
+    return(dia, mes, ano);
 }
 
 int periodo(){
