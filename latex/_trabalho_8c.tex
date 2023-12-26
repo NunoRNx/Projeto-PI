@@ -1,0 +1,94 @@
+\doxysection{Trabalho.\+c File Reference}
+\hypertarget{_trabalho_8c}{}\label{_trabalho_8c}\index{Trabalho.c@{Trabalho.c}}
+
+
+Este projeto é um projeto com o objetivo de criar uma aplicação informática que apoie a gerir um comportamento de alimentação saudável. controlando e monitorizando a realização de uma deita alimentar saudável, é fundamental. Esta aplicação premdite a leitura de vários ficheiros de texto organizados com informação dos pacientes, o seus respetivos planos e diários nutricionais. Tambem permite várias verificações como\+: -\/Apresentação do número de pacientes que ultrapassaram determinada quantidade de calorias, num determinado período; -\/Listagem dos pacientes, ordenada por ordem decrescente do número de paciente, que realizaram alguma refeição com quantidade de calorias fora do intervalo (de acordo com o plano nutricional) num determinado período; -\/Listar o plano nutricional de um paciente para determinada refeição ao longo de um determinado período; -\/Cálculo das médias da calorias consumias por refeição por cada paciente ao longo de um determinado período; -\/Gerar a tabela das refeições planeadas e realizadas para todos os pacientes, onde consta as seguintes informações\+: Número de Paciente, Nome, Tipo Refeição, \doxylink{struct_data}{Data} de Início, \doxylink{struct_data}{Data} de Fim, Calorias Mínimas, Calorias Máximas e Consumo realizado.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_data}{Data}}
+\item 
+struct \mbox{\hyperlink{struct_lpac}{Lpac}}
+\item 
+struct \mbox{\hyperlink{struct_lnut}{Lnut}}
+\item 
+struct \mbox{\hyperlink{struct_lplan}{Lplan}}
+\item 
+struct \mbox{\hyperlink{struct_lista}{Lista}}
+\item 
+struct \mbox{\hyperlink{struct_tabela}{Tabela}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{_trabalho_8c_a2e1da8593b0244d8e9e3b84ef7b35e73}\label{_trabalho_8c_a2e1da8593b0244d8e9e3b84ef7b35e73} 
+\#define {\bfseries max}~100
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{_trabalho_8c_ab481149d366d644eaa03713cb2f2579f}\label{_trabalho_8c_ab481149d366d644eaa03713cb2f2579f} 
+int {\bfseries verificar\+File} (char \texorpdfstring{$\ast$}{*}filename)
+\item 
+\Hypertarget{_trabalho_8c_a9e828c6fb8da6d1b818184abe150b092}\label{_trabalho_8c_a9e828c6fb8da6d1b818184abe150b092} 
+int {\bfseries paciente} (struct \mbox{\hyperlink{struct_lpac}{Lpac}} pac\mbox{[}$\,$\mbox{]}, int qt\mbox{[}$\,$\mbox{]})
+\item 
+\Hypertarget{_trabalho_8c_af97ce224380b220d27379f4987f43f92}\label{_trabalho_8c_af97ce224380b220d27379f4987f43f92} 
+int {\bfseries nutricao} (struct \mbox{\hyperlink{struct_lpac}{Lpac}} pac\mbox{[}$\,$\mbox{]}, struct \mbox{\hyperlink{struct_lnut}{Lnut}} nut\mbox{[}$\,$\mbox{]}, int qt\mbox{[}$\,$\mbox{]})
+\item 
+\Hypertarget{_trabalho_8c_a833c170b0fb1626eed93b1f22b3f27a2}\label{_trabalho_8c_a833c170b0fb1626eed93b1f22b3f27a2} 
+int {\bfseries plano} (struct \mbox{\hyperlink{struct_lpac}{Lpac}} pac\mbox{[}$\,$\mbox{]}, struct \mbox{\hyperlink{struct_lplan}{Lplan}} pl\mbox{[}$\,$\mbox{]}, int qt\mbox{[}$\,$\mbox{]})
+\item 
+\Hypertarget{_trabalho_8c_ae91ba6a5274d793ed372d2751ec81c80}\label{_trabalho_8c_ae91ba6a5274d793ed372d2751ec81c80} 
+int {\bfseries leitura} (struct \mbox{\hyperlink{struct_lpac}{Lpac}} pac\mbox{[}$\,$\mbox{]}, struct \mbox{\hyperlink{struct_lnut}{Lnut}} nut\mbox{[}$\,$\mbox{]}, struct \mbox{\hyperlink{struct_lplan}{Lplan}} pl\mbox{[}$\,$\mbox{]}, int qt\mbox{[}$\,$\mbox{]})
+\item 
+\Hypertarget{_trabalho_8c_a2a5e6fc61983940ee1899e4e7bf9f814}\label{_trabalho_8c_a2a5e6fc61983940ee1899e4e7bf9f814} 
+int {\bfseries periodo} (struct \mbox{\hyperlink{struct_lpac}{Lpac}} pac\mbox{[}$\,$\mbox{]}, struct \mbox{\hyperlink{struct_lnut}{Lnut}} nut\mbox{[}$\,$\mbox{]}, struct \mbox{\hyperlink{struct_lplan}{Lplan}} pl\mbox{[}$\,$\mbox{]}, int qt\mbox{[}$\,$\mbox{]})
+\item 
+\Hypertarget{_trabalho_8c_a0635963c6642d9cae6413bbc26c3b599}\label{_trabalho_8c_a0635963c6642d9cae6413bbc26c3b599} 
+int {\bfseries Listar\+Paciente} (struct \mbox{\hyperlink{struct_lpac}{Lpac}} pac\mbox{[}$\,$\mbox{]}, struct \mbox{\hyperlink{struct_lnut}{Lnut}} nut\mbox{[}$\,$\mbox{]}, struct \mbox{\hyperlink{struct_lplan}{Lplan}} pl\mbox{[}$\,$\mbox{]}, int qt\mbox{[}$\,$\mbox{]})
+\item 
+\Hypertarget{_trabalho_8c_a0d55948a5c22a9701ac049ccc42104a8}\label{_trabalho_8c_a0d55948a5c22a9701ac049ccc42104a8} 
+int {\bfseries refeicao} (struct \mbox{\hyperlink{struct_lpac}{Lpac}} pac\mbox{[}$\,$\mbox{]}, struct \mbox{\hyperlink{struct_lnut}{Lnut}} nut\mbox{[}$\,$\mbox{]}, struct \mbox{\hyperlink{struct_lplan}{Lplan}} pl\mbox{[}$\,$\mbox{]}, int qt\mbox{[}$\,$\mbox{]})
+\item 
+\Hypertarget{_trabalho_8c_a27ce66b8c1be68b8c73037397b9d8001}\label{_trabalho_8c_a27ce66b8c1be68b8c73037397b9d8001} 
+int {\bfseries med\+Refeicao} (struct \mbox{\hyperlink{struct_lpac}{Lpac}} pac\mbox{[}$\,$\mbox{]}, struct \mbox{\hyperlink{struct_lnut}{Lnut}} nut\mbox{[}$\,$\mbox{]}, int qt\mbox{[}$\,$\mbox{]})
+\item 
+\Hypertarget{_trabalho_8c_aeae97a770a36e955a19a42b3c3b4d05a}\label{_trabalho_8c_aeae97a770a36e955a19a42b3c3b4d05a} 
+int {\bfseries tabela} (struct \mbox{\hyperlink{struct_lpac}{Lpac}} pac\mbox{[}$\,$\mbox{]}, struct \mbox{\hyperlink{struct_lnut}{Lnut}} nut\mbox{[}$\,$\mbox{]}, struct \mbox{\hyperlink{struct_lplan}{Lplan}} pl\mbox{[}$\,$\mbox{]}, int qt\mbox{[}$\,$\mbox{]})
+\item 
+\Hypertarget{_trabalho_8c_a4ec61c789ea55d7680eb7285c2f829bc}\label{_trabalho_8c_a4ec61c789ea55d7680eb7285c2f829bc} 
+int {\bfseries data} (int \texorpdfstring{$\ast$}{*}dia, int \texorpdfstring{$\ast$}{*}mes, int \texorpdfstring{$\ast$}{*}ano)
+\item 
+\Hypertarget{_trabalho_8c_a2281752f30556f60c22d8623df28380d}\label{_trabalho_8c_a2281752f30556f60c22d8623df28380d} 
+int {\bfseries verifperiodo} (int \texorpdfstring{$\ast$}{*}data0, int \texorpdfstring{$\ast$}{*}data1)
+\item 
+\Hypertarget{_trabalho_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{_trabalho_8c_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int {\bfseries main} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Este projeto é um projeto com o objetivo de criar uma aplicação informática que apoie a gerir um comportamento de alimentação saudável. controlando e monitorizando a realização de uma deita alimentar saudável, é fundamental. Esta aplicação premdite a leitura de vários ficheiros de texto organizados com informação dos pacientes, o seus respetivos planos e diários nutricionais. Tambem permite várias verificações como\+: -\/Apresentação do número de pacientes que ultrapassaram determinada quantidade de calorias, num determinado período; -\/Listagem dos pacientes, ordenada por ordem decrescente do número de paciente, que realizaram alguma refeição com quantidade de calorias fora do intervalo (de acordo com o plano nutricional) num determinado período; -\/Listar o plano nutricional de um paciente para determinada refeição ao longo de um determinado período; -\/Cálculo das médias da calorias consumias por refeição por cada paciente ao longo de um determinado período; -\/Gerar a tabela das refeições planeadas e realizadas para todos os pacientes, onde consta as seguintes informações\+: Número de Paciente, Nome, Tipo Refeição, \doxylink{struct_data}{Data} de Início, \doxylink{struct_data}{Data} de Fim, Calorias Mínimas, Calorias Máximas e Consumo realizado. 
+
+\begin{DoxyAuthor}{Author}
+Nuno Silva 
+
+Joel Faria 
+
+Diogo Graça 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+3 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2023-\/12-\/18
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2023 
+\end{DoxyCopyright}
